@@ -1,0 +1,52 @@
+---
+layout: base.njk
+title: "인천 개인회생·개인파산 정보 블로그"
+description: "이형철법무사사무소가 개인회생, 개인파산, 급여압류, 채무 문제를 이해하기 쉽게 정리합니다."
+---
+<section class="hero">
+  <div class="wrap">
+    <p class="eyebrow">인천 개인회생·개인파산 정보</p>
+    <h1>채무 문제를 결정하기 전에 절차와 기준을 먼저 확인하세요.</h1>
+    <p>이형철법무사사무소 정보형 블로그는 개인회생, 개인파산, 급여압류, 채무조정 관련 기본 정보를 검색과 AI 검색이 이해하기 쉬운 구조로 정리합니다.</p>
+    <div class="hero-actions">
+      <a class="button" href="/blog/">블로그 보기</a>
+      <a class="button secondary" href="/contact/">상담 안내</a>
+    </div>
+  </div>
+</section>
+
+<section class="wrap section">
+  <div class="section-header">
+    <h2>최근 글</h2>
+    <p>신청 가능성을 단정하지 않고, 확인해야 할 기준과 준비사항을 중심으로 정리합니다.</p>
+  </div>
+  <div class="post-grid">
+    {% for post in collections.posts | reverse %}
+    <article class="post-card">
+      <a href="{{ post.url }}">
+        <h3>{{ post.data.title }}</h3>
+        <p>{{ post.data.description }}</p>
+        <time datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate }}</time>
+      </a>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="wrap section two-column">
+  <div>
+    <h2>주요 주제</h2>
+    <ul class="check-list">
+      <li>개인회생 절차와 준비서류</li>
+      <li>개인파산 신청 전 확인사항</li>
+      <li>급여압류와 채권추심 대응</li>
+      <li>상담 전 정리해야 할 자료</li>
+    </ul>
+  </div>
+  <div class="info-box">
+    <h2>사무소 안내</h2>
+    <p>{{ site.address }}</p>
+    <p>{{ site.phone }}</p>
+    <p>{{ site.hours }}</p>
+  </div>
+</section>
