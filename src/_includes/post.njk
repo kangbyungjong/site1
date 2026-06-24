@@ -1,0 +1,33 @@
+---
+layout: base.njk
+---
+<article class="wrap article">
+  <nav class="breadcrumb" aria-label="breadcrumb">
+    <a href="/">홈</a>
+    <span>/</span>
+    <a href="/blog/">블로그</a>
+    <span>/</span>
+    <span>{{ title }}</span>
+  </nav>
+
+  <header class="article-header">
+    <p class="eyebrow">법률 정보</p>
+    <h1>{{ title }}</h1>
+    <p class="description">{{ description }}</p>
+    <time datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time>
+  </header>
+
+  <aside class="notice">
+    {{ site.disclaimer }}
+  </aside>
+
+  <div class="content">
+    {{ content | safe }}
+  </div>
+
+  <section class="contact-band">
+    <h2>상담 전 확인할 점</h2>
+    <p>채무 규모, 소득, 재산, 압류 여부, 최근 대출 여부를 정리하면 상담이 더 정확해집니다.</p>
+    <a class="button" href="/contact/">상담 안내 보기</a>
+  </section>
+</article>
