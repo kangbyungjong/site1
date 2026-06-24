@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% if title %}{{ title }} | {% endif %}{{ site.name }}</title>
+    <meta name="description" content="{{ description or site.description }}">
+    <link rel="canonical" href="{{ site.url }}{{ page.url }}">
+    <meta property="og:title" content="{% if title %}{{ title }}{% else %}{{ site.name }}{% endif %}">
+    <meta property="og:description" content="{{ description or site.description }}">
+    <meta property="og:type" content="{% if layout == 'post.njk' %}article{% else %}website{% endif %}">
+    <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LegalService",
+        "name": "{{ site.name }}",
+        "url": "{{ site.url }}",
+        "telephone": "{{ site.phone }}",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "{{ site.address }}",
+          "addressCountry": "KR"
+        },
+        "areaServed": "{{ site.area }}"
+      }
+    </script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="wrap header-grid">
+        <a class="brand" href="/">{{ site.name }}</a>
+        <nav class="nav" aria-label="주요 메뉴">
+          <a href="/">홈</a>
+          <a href="/blog/">블로그</a>
+          <a href="/contact/">상담 안내</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      {{ content | safe }}
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap">
+        <p>{{ site.disclaimer }}</p>
+        <p>{{ site.address }} · {{ site.phone }} · {{ site.hours }}</p>
+      </div>
+    </footer>
+  </body>
+</html>
